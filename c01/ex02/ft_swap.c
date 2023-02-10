@@ -6,15 +6,15 @@
 /*   By: skarabul <skarabul@student.42kocaeli.com.  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 10:37:02 by skarabul          #+#    #+#             */
-/*   Updated: 2023/02/09 10:38:05 by skarabul         ###   ########.tr       */
+/*   Updated: 2023/02/10 12:01:39 by skarabul         ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 void	ft_swap(int *a, int *b)
 {
-	int		bosbardak;
+	int		swap;
 
-	bosbardak = *a;
+	swap = *a;
 	*a = *b;
-	*b = bosbardak;
+	*b = swap;
 }
