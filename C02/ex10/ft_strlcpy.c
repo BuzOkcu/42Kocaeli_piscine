@@ -1,41 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_lowcase.c                                :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: skarabul <skarabul@student.42kocaeli.com.  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/10 20:00:34 by skarabul          #+#    #+#             */
-/*   Updated: 2023/02/11 11:08:31 by skarabul         ###   ########.tr       */
+/*   Created: 2023/02/11 13:30:52 by skarabul          #+#    #+#             */
+/*   Updated: 2023/02/11 13:35:16 by skarabul         ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
-
-int	ft_str_is_lowercase(char *str)
+int	ft_strlen(char *str)
 {
 	int	i;
 
 	i = 0;
 	while (str[i] != '\0')
-	{		
-		if (!(str[i] >= 'a' && str[i] <= 'z'))
-	    {
-			return (0);
-     	}
-	    i++;
-    }
-	return (1);
+		i++;
+	return (i);
 }
 
-int main()
+unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 {
-	char str[] = "zxxhjc";
-	int sayiyap = ft_str_is_lowercase(str);
-	printf("%d\n", sayiyap);
-	char str1[] = "12345";
-    sayiyap = ft_str_is_lowercase(str1);
-	printf("%d\n", sayiyap);
-	return 0;
+	unsigned int	i;
+	unsigned int	x;
+
+	x = ft_strlen(src);
+	i = 0;
+	if (size != 0)
+	{
+		while (src [i] != '\0' && i < size - 1)
+		{
+			dest[i] = src[i];
+			i++;
+		}
+		dest[i] = '\0';
+	}
+	return (x);
 }
