@@ -1,41 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_comb.c                                    :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: skarabul <skarabul@student.42kocaeli.com.  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/05 03:19:07 by skarabul          #+#    #+#             */
-/*   Updated: 2023/02/05 03:24:00 by skarabul         ###   ########.tr       */
+/*   Created: 2023/02/14 12:07:49 by skarabul          #+#    #+#             */
+/*   Updated: 2023/02/15 15:11:03 by skarabul         ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_print_comb(void)
+int	ft_strncmp(char *s1, char *s2, unsigned int n)
 {
-	int	a;
-	int	b;
-	int	c;
+	unsigned int	i;
 
-	a = '0';
-	while (a <= '7')
+	i = 0;
+	while ((s1[i] != '\0' || s2[i] != '\0') && i < n)
 	{
-		b = a + 1;
-		while (b <= '8')
+		if (s1[i] > s2[i])
 		{
-			c = b + 1;
-			while (c <= '9')
-			{
-				write (1, &a, 1);
-				write (1, &b, 1);
-				write (1, &c, 1);
-				if (a != '7')
-					write (1, ", ", 2);
-				c++;
-			}
-			b++;
+			return (1);
 		}
-		a++;
+		else if (s1[i] < s2[i])
+		{
+			return (-1);
+		}
+		i++;
 	}
+	return (0);
+}
+
+#include <stdio.h>
+int main()
+{
+	printf("\n%d", ft_strncmp("asdasd", "asdcfg", 3));
 }

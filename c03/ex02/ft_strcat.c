@@ -1,41 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_comb.c                                    :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: skarabul <skarabul@student.42kocaeli.com.  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/05 03:19:07 by skarabul          #+#    #+#             */
-/*   Updated: 2023/02/05 03:24:00 by skarabul         ###   ########.tr       */
+/*   Created: 2023/02/14 13:50:21 by skarabul          #+#    #+#             */
+/*   Updated: 2023/02/14 13:59:29 by skarabul         ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_print_comb(void)
+char	*ft_strcat(char *dest, char *src)
 {
+	int	i;
 	int	a;
-	int	b;
-	int	c;
 
-	a = '0';
-	while (a <= '7')
+	i = 0;
+	while (dest[i] != '\0')
 	{
-		b = a + 1;
-		while (b <= '8')
-		{
-			c = b + 1;
-			while (c <= '9')
-			{
-				write (1, &a, 1);
-				write (1, &b, 1);
-				write (1, &c, 1);
-				if (a != '7')
-					write (1, ", ", 2);
-				c++;
-			}
-			b++;
-		}
+		i++;
+	}
+	a = 0;
+	while (src[a] != '\0')
+	{
+		dest[i] = src[a];
+		i++;
 		a++;
 	}
+	dest[i] = '\0';
+	return (dest);
 }

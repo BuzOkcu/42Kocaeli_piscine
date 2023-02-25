@@ -1,41 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_comb.c                                    :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: skarabul <skarabul@student.42kocaeli.com.  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/05 03:19:07 by skarabul          #+#    #+#             */
-/*   Updated: 2023/02/05 03:24:00 by skarabul         ###   ########.tr       */
+/*   Created: 2023/02/14 15:44:19 by skarabul          #+#    #+#             */
+/*   Updated: 2023/02/15 16:40:26 by skarabul         ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_print_comb(void)
+char	*ft_strstr(char *str, char *to_find)
 {
+	int	i;
 	int	a;
-	int	b;
-	int	c;
 
-	a = '0';
-	while (a <= '7')
+	i = 0;
+	a = 0;
+	if (to_find[a] == '\0')
+		return (str);
+	while (str[i] != '\0')
 	{
-		b = a + 1;
-		while (b <= '8')
-		{
-			c = b + 1;
-			while (c <= '9')
-			{
-				write (1, &a, 1);
-				write (1, &b, 1);
-				write (1, &c, 1);
-				if (a != '7')
-					write (1, ", ", 2);
-				c++;
-			}
-			b++;
-		}
-		a++;
+		while (str[i + a] == to_find[a] && str[i + a] != '\0')
+			a++;
+		if (to_find[a] == '\0')
+			return (str + i);
+		i++;
+		a = 0;
 	}
+	return (0);
 }
+#include <stdio.h>
+int main()
+{
+	char str[] = "asbdj abskjd skjjk";
+	char find[] = "skj";
+	printf("%s", ft_strstr(str, find));
+}
+
